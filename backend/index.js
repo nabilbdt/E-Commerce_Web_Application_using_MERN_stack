@@ -12,11 +12,11 @@ const discCtrl = require("./routes/DiscoRouter");
 const productRouter = require("./routes/productRoute");
 const categoryRouter = require("./routes/prodcategoryRoute");
 const uploadRouter = require("./routes/uploadRoute");
-const sliderRouter = require('./routes/sliderRouter')
+const sliderRouter = require('./routes/sliderRouter');
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const cors = require("cors");
-const path = require('path')
+const path = require('path');
 
 
 dbConnect();
@@ -32,7 +32,7 @@ app.use("/", categoryRouter);
 app.use("/api/slider", sliderRouter);
 app.use("/api/upload", uploadRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use(express.json())
+app.use(express.json());
 
 app.use(notFound);
 app.use(errorHandler);

@@ -52,7 +52,7 @@ async function fetchProducts(){
                
                 </div>
                 <div className='right'>
-                  <img className='zigzag' src={"http://localhost:4000"+value.image} alt='' />
+                  <img className='zigzag ' src={"http://localhost:4000"+value.image} alt='' />
                 </div>
               </div>
             </>

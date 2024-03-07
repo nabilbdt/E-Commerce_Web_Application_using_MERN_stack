@@ -25,7 +25,6 @@ export default function Add(){
     async function fetchCategories(){
       const resp = await getallCategory()
       setCategories(resp.data)
-      console.log(resp.data)
       
     }
     
@@ -35,19 +34,11 @@ export default function Add(){
     const formData = new FormData();
     formData.append('productData',JSON.stringify(p));
     formData.append('productImage',productImage);
-    // const formData = new FormData();
-    // formData.append('productData',JSON.stringify(p));
-    // formData.append('productImage',productImage);
     await addProduct(formData)
     const token =localStorage.getItem('jwtToken')
     console.log('tokeen' + token)
    
-    
 
-     
-   
-    // nav('/list')
-    
     
  }
  return (

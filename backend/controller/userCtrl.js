@@ -9,11 +9,11 @@ dotenv.config();
 
 const asyncHandler = require("express-async-handler");
 const { generateToken } = require("../config/jwtToken");
-// const validateMongoDbId = require("../utils/validateMongodbId");
 const { generateRefreshToken } = require("../config/refreshtoken");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
+const logger = require("../loggin");
 
 // Create a User ----------------------------------------------
 
@@ -27,7 +27,8 @@ const createUser = asyncHandler(async (req, res) => {
     res.status(201).send(user)
 
 }catch(error){
-    res.status(500).send(error)
+  logger.log({'level':"error","message":error})
+  res.status(500).send(error)
 }
 });
 
@@ -41,16 +42,18 @@ async function loginUserCtrl (req, res)  {
            const token =  jwt.sign({"email":user[0].email},process.env.SECRET_KEY,{expiresIn:"1h"});
             res.status(200).json(token)
         }else{
+          logger.log({'level':"error","message":"error"})
+
             res.status(401).json('Login ou motpass incoreect')
         }
     }else{
-        res.status(401).json('Login ou motpass incoreect')
-        
+      logger.log({'level':"error","message":"error"})
 
+        res.status(401).json('Login ou motpass incoreect')
     }
 
 }catch(error){
-    res.status(500).json(error)
+  logger.log({'level':"error","message":error})
 
 }
 

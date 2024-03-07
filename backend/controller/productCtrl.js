@@ -14,8 +14,8 @@ const createProduct = asyncHandler(async (req, res) => {
   await (await Product.create(p)).populate('category')
     res.status(201)  
   }catch(error){
-    res.status(500).send(error)
-    console.log(error);
+    logger.log({'level':"error","message":error})
+    
   }
 });
 

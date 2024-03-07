@@ -6,7 +6,7 @@ const {createSlider, getAllSlider, getS}=require('../controller/sliderCtrl')
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
-        cb(null,"C:/Users/u/Downloads/Front_E-commerce_website_using_Reactjs-main/backend/uploads");
+        cb(null,"C:/Users/Dell/OneDrive/Desktop/mern_ecommerce/backend/uploads");
     },
     filename : (req,file,cb)=> {
         cb(null,file.originalname);

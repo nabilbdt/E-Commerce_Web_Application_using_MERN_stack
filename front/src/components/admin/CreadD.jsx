@@ -21,18 +21,9 @@ export default function CreatD(){
     const formData = new FormData();
     formData.append('productData',JSON.stringify(p));
     formData.append('productImage',productImage);
-    // const formData = new FormData();
-    // formData.append('productData',JSON.stringify(p));
-    // formData.append('productImage',productImage);
-    await addD(formData)
-   
-   
-    
 
-     
-   
-    // nav('/list')
-    
+    await addD(formData)
+  
     
  }
  return (
